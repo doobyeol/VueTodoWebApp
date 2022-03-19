@@ -1,9 +1,9 @@
 <template>
   <div class="inputBox shadow">
-    <input type="text" v-model="newTodoItem" v-on:keyup.enter="appTodo" />
+    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
     <!-- input 에 입력된 값을 동적으로 vue 인스턴스에 매핑하는 역할 -->
     <!-- <button v-on:click="appTodo">add</button> -->
-    <span class="addContainer" v-on:click="appTodo">
+    <span class="addContainer" v-on:click="addTodo">
       <i class="fa-solid fa-plus addBtn"></i>
     </span>
   </div>
@@ -17,17 +17,15 @@ export default {
     };
   },
   methods: {
-    appTodo: function () {
+    addTodo: function () {
       if (this.newTodoItem !== "") {
-        var obj = { completed: false, item: this.newTodoItem };
-        //console.log(this.newTodoItem);
-        // 저장하는 로직
-        // localStorage.setItem(this.newTodoItem, obj);
-        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        // var obj = { completed: false, item: this.newTodoItem };
+        // localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        // this.$emit('이벤트 이름', 인자1, 인자2, ...);
+        this.$emit("addTodoItem", this.newTodoItem);
         this.cliearInput();
       }
     },
-    // 메소드 분할
     cliearInput: function () {
       this.newTodoItem = "";
     },
