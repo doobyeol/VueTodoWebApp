@@ -12,7 +12,9 @@
       you can use custom content here to overwrite
       default content
     -->
-      <h3 slot="header">custom header</h3>
+      <h3 slot="header">경고!</h3>
+      <p slot="body">무언가를 입력하세요.</p>
+      <p slot="footer">copy right</p>
     </Modal>
   </div>
 </template>
@@ -36,6 +38,7 @@ export default {
         this.cliearInput();
       } else {
         // alert("왜 아무것도 안쳐");
+        this.showModal = !this.showModal;
       }
     },
     cliearInput: function () {
