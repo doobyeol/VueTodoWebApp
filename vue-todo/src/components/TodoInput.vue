@@ -12,8 +12,13 @@
       you can use custom content here to overwrite
       default content
     -->
-      <h3 slot="header">경고!</h3>
-      <p slot="body">무언가를 입력하세요.</p>
+      <h3 slot="header">
+        경고!<i
+          class="fas fa-times closeModalBtn"
+          @click="showModal = false"
+        ></i>
+      </h3>
+      <p slot="body">아무것도 입력하지 않으셨습니다.</p>
       <p slot="footer">copy right</p>
     </Modal>
   </div>
