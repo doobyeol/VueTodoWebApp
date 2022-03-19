@@ -7,6 +7,7 @@
     <TodoList
       v-bind:propsdata="todoItems"
       v-on:removeItem="removeOneItem"
+      v-on:toggleItem="toggleOneItem"
     ></TodoList>
     <TodoFooter></TodoFooter>
   </div>
@@ -45,6 +46,13 @@ export default {
     removeOneItem: function (todoItem, index) {
       localStorage.removeItem(todoItem.item);
       this.todoItems.splice(index, 1);
+    },
+    toggleOneItem: function (todoItem, index) {
+      //todoItem.completed = !todoItem.completed;
+      this.todoItems[index].completed = !this.todoItems[index].completed;
+      // 로컬 스토리지에 데이터 갱신
+      localStorage.removeItem(todoItem.item);
+      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
   },
   created: function () {
