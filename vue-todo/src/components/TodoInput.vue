@@ -27,14 +27,14 @@
 <script>
 import Modal from "./common/Modal.vue";
 export default {
-  data: function () {
+  data() {
     return {
       newTodoItem: "",
       showModal: false,
     };
   },
   methods: {
-    addTodo: function () {
+    addTodo() {
       if (this.newTodoItem !== "") {
         // var obj = { completed: false, item: this.newTodoItem };
         // localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
@@ -46,7 +46,7 @@ export default {
         this.showModal = !this.showModal;
       }
     },
-    cliearInput: function () {
+    cliearInput() {
       this.newTodoItem = "";
     },
   },
