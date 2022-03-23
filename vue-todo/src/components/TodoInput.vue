@@ -39,7 +39,9 @@ export default {
         // var obj = { completed: false, item: this.newTodoItem };
         // localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
         // this.$emit('이벤트 이름', 인자1, 인자2, ...);
-        this.$emit("addTodoItem", this.newTodoItem);
+        // this.$emit("addTodoItem", this.newTodoItem);
+        const text = this.newTodoItem.trim();
+        this.$store.commit("addOneItem", text);
         this.cliearInput();
       } else {
         // alert("왜 아무것도 안쳐");
